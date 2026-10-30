@@ -1,0 +1,44 @@
+{
+  "product": "ffs-diff",
+  "path": "/home/toxic/pens/ranch/products/ffs-diff",
+  "files": 15,
+  "detected_at": "2026-10-30T06:11:06.582087Z",
+  "env_vars": {
+    "FFS_BIN": [
+      "src/outline.js"
+    ],
+    "FREEINFERENCE_API_KEY": [
+      "src/foldercompare.js"
+    ],
+    "ROOT": [
+      "src/outline.js"
+    ],
+    "aPath": [
+      "src/cli.js"
+    ],
+    "aRoot": [
+      "src/folder-ast-audit.js"
+    ],
+    "bPath": [
+      "src/cli.js"
+    ],
+    "bRoot": [
+      "src/folder-ast-audit.js"
+    ],
+    "conflicts": [
+      "src/cli.js"
+    ],
+    "example": [
+      "src/folder-ast-audit.js"
+    ],
+    "folder": [
+      "src/foldercompare.js"
+    ],
+    "prefix": [
+      "src/cli.js"
+    ],
+    "totalChanges": [
+      "src/cli.js"
+    ]
+  }
+}
