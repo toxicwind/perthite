@@ -1,6 +1,6 @@
-# AGENTS.md — ffs-diff
+# AGENTS.md — perthite
 
-Standalone ranch repo for the `ffs-diff` CLI (diff + three-way merge).
+Standalone ranch repo for the `perthite` CLI (diff + three-way merge).
 
 - Node (`commonjs`), zero runtime deps. Structural outlines come from the
   estate `ffs` binary (`bin/ffs`); merge mode shells to `git merge-file`.
@@ -9,4 +9,4 @@ Standalone ranch repo for the `ffs-diff` CLI (diff + three-way merge).
 - Conflict markers are `<<<<<<< ours / ======= / >>>>>>> theirs`.
 - Keep it additive and doctrinally quiet: no secrets, LF + ASCII, no
   hardcoded `github.com/<owner>/<repo>` URLs (reference peers by local path).
-- Verify with `./bin/ffs-diff.js --help` and `bun test tests/`.
+- Verify with `./bin/perthite.js --help` and `bun test tests/`.

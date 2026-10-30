@@ -1,6 +1,6 @@
-# Contributing to ffs-diff
+# Contributing to perthite
 
-Thanks for improving `ffs-diff`. Keep every change small, additive, and true to
+Thanks for improving `perthite`. Keep every change small, additive, and true to
 the design: **diff** surfaces structure via `ffs`; **merge** delegates to git's
 `merge-file`. Never hand-roll a diff3 where git already has one.
 
@@ -19,7 +19,7 @@ bun test tests/       # diff, outline, merge suites
   repos by local path, or resolve via `git -C <path> remote get-url origin`.
   (The README is the one exception — it links the published repo/tools.)
 - **Additive first.** Prefer adding to `src/` modules over growing
-  `bin/ffs-diff.js` (the entry stays thin).
+  `bin/perthite.js` (the entry stays thin).
 - **Merge never drops content.** A change is only "safe" if it doesn't lose
   either side's edit; conflicts must surface markers, never silently resolve.
 
@@ -33,5 +33,5 @@ bun test tests/       # diff, outline, merge suites
 ## Issue template
 
 For a bug or question, a PR is even better than an issue — but if you open one,
-include the exact `ffs-diff` invocation and the three file versions
+include the exact `perthite` invocation and the three file versions
 (base/ours/theirs) or a minimal reproducer.

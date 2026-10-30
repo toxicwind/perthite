@@ -1,6 +1,6 @@
 $schema: 'https://moonrepo.dev/schemas/project.json'
 
-# ffs-diff — ranch component: multi-file structural diff + three-way merge.
+# perthite — ranch component: multi-file structural diff + three-way merge.
 language: 'typescript'
 stack: 'backend'
 tags:
