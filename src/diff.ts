@@ -1,5 +1,3 @@
-"use strict";
-
 /**
  * Line-level diff primitives.
  * Patterns borrowed from:
@@ -47,4 +45,4 @@ function simpleDiff(aText, bText, maxLines = 80) {
   return out.slice(0, maxLines * 3);
 }
 
-module.exports = { splitLines, lcsOps, simpleDiff };
+export { splitLines, lcsOps, simpleDiff };

@@ -3,9 +3,9 @@
     "@types/bun": "^1.4.4",
     "bun-types": "^1.4.4"
   },
-  "name": "@estate/ffs-diff",
+  "name": "@geode/perthite",
   "version": "1.0.0",
-  "description": "ffs-diff: multi-file structural diff and three-way merge, ffs/tree-sitter aware.",
+  "description": "Multi-file structural diff AND three-way merge, ffs-aware + trio fused context (eidos dropin).",
   "license": "MIT",
   "engines": {
     "bun": ">=1.4.4",
@@ -17,7 +17,7 @@
     ".": "./src/index.js"
   },
   "bin": {
-    "ffs-diff": "./bin/ffs-diff.ts"
+    "perthite": "./bin/perthite.ts"
   },
   "files": [
     "bin/",

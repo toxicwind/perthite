@@ -1,12 +1,8 @@
-"use strict";
-
 /**
  * Three-way merge (diff3) backed by git's battle-tested `merge-file`.
  * Never silently drops either side's edit; overlaps become conflict markers.
  */
 
-const { spawnSync } = require("node:child_process");
-const { splitLines } = require("./diff");
 
 /**
  * Merge base/ours/theirs (file paths). Returns { merged: string[], conflicts: number }.
@@ -36,4 +32,4 @@ function fastForward(baseText, oursText, theirsText) {
   return null;
 }
 
-module.exports = { mergeThree, fastForward };
+export { mergeThree, fastForward };

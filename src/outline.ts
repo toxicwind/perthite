@@ -1,15 +1,15 @@
-"use strict";
+import { readFileSync, existsSync } from "node:fs";
+import { resolve, dirname } from "node:path";
+import { fileURLToPath } from "node:url";
+import { spawnSync } from "node:child_process";
 
 /**
  * Structural outline extraction: ffs tree-sitter outlines for code, heading
  * trees for markdown, plus signature-map comparison for change surfacing.
  */
 
-const { spawnSync } = require("node:child_process");
-const { readFileSync, dirname } = require("node:fs");
-const { resolve } = require("node:path");
 
-const ROOT = resolve(__dirname, "..");
+const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const FFS_BIN = process.env.FFS_BIN || `${ROOT}/bin/ffs`;
 
 function runFFS(...args) {
@@ -85,4 +85,4 @@ function diffSignatures(aSigs, bSigs) {
   return { added, removed, changed };
 }
 
-module.exports = { runFFS, getMarkdownOutline, getOutline, buildSignatureMap, diffSignatures };
+export { runFFS, getMarkdownOutline, getOutline, buildSignatureMap, diffSignatures };

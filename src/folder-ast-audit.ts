@@ -1,9 +1,14 @@
-#!/usr/bin/env node
+import { spawnSync } from "node:child_process";
+import fs from "node:fs";
+import path from "node:path";
+import { getOutline, buildSignatureMap, diffSignatures } from "./outline.ts";
+
+#!/usr/bin/env bun
 "use strict";
 /**
  * folder-ast-audit — structural comparison of two source trees.
  *
- * Reuses ffs-diff's outline/signature machinery (tree-sitter via the `ffs`
+ * Reuses perthite's outline/signature machinery (tree-sitter via the `ffs`
  * binary) to classify every file pair between two folders:
  *   identical      — byte-for-byte equal
  *   restyled       — same structural signature, different body
@@ -13,11 +18,7 @@
  * Usage: node folder-ast-audit.js <dirA> <dirB> [--json out.json] [--ext .go,.ts]
  */
 
-const { spawnSync } = require("node:child_process");
-const fs = require("node:fs");
-const path = require("node:path");
 
-const { getOutline, buildSignatureMap, diffSignatures } = require("./outline.js");
 
 const SKIP_DIRS = new Set([
   ".git", "node_modules", "vendor", "dist", "build", ".cache", "web", "frontend",

@@ -1,21 +1,20 @@
-"use strict";
-
 /**
- * CLI parsing, help text, and output formatting for ffs-diff.
- * Dispatch lives in bin/ffs-diff.js.
+ * CLI parsing, help text, and output formatting for perthite.
+ * Dispatch lives in bin/perthite.js.
  */
 
-const { readFileSync, writeFileSync, existsSync } = require("node:fs");
-const { resolve } = require("node:path");
-const { splitLines, simpleDiff } = require("./diff");
-const { getOutline, buildSignatureMap, diffSignatures } = require("./outline");
-const { mergeThree, fastForward } = require("./merge");
+import { readFileSync, writeFileSync, existsSync } from "node:fs";
+import { resolve } from "node:path";
+import { splitLines, simpleDiff } from "./diff";
+import { getOutline, buildSignatureMap, diffSignatures } from "./outline";
+import { mergeThree, fastForward } from "./merge";
+
 
 const HELP = `Usage:
-  ffs-diff <file1> <file2> [--format json|text] [--outline] [--full]
+  perthite <file1> <file2> [--format json|text] [--outline] [--full]
       Structural diff of two files (added/removed/changed symbols, outlines).
 
-  ffs-diff <base> <ours> <theirs> --merge [--output <file>] [--json]
+  perthite <base> <ours> <theirs> --merge [--output <file>] [--json]
       Three-way merge against a common base. Safe single-side edits are applied
       automatically; both-sides divergence becomes <<<<<<< ours / ======= / >>>>>>> theirs
       conflict markers. --json also prints the conflict region index.

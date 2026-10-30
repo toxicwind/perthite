@@ -1,4 +1,10 @@
-#!/usr/bin/env node
+import { spawnSync } from "node:child_process";
+import fs from "node:fs";
+import path from "node:path";
+import crypto from "node:crypto";
+import { getOutline, buildSignatureMap } from "./outline.ts";
+
+#!/usr/bin/env bun
 "use strict";
 /**
  * foldercompare — "find similar to this folder", with a cherry-pick goal.
@@ -9,7 +15,7 @@
  * caller can cherry-pick the strongest variant into the target.
  *
  * Similarity is a blend of:
- *   - structural  : tree-sitter signature overlap (via ffs-diff's outline)
+ *   - structural  : tree-sitter signature overlap (via perthite's outline)
  *   - lexical     : token-set Jaccard over identifiers/comments
  *   - semantic    : embedding cosine over bge-m3 (freeinference), optional
  *   - exact       : byte-identical shortcut
@@ -20,12 +26,7 @@
  *                          [--ext .go,.ts] [--min-score 0.35]
  */
 
-const { spawnSync } = require("node:child_process");
-const fs = require("node:fs");
-const path = require("node:path");
-const crypto = require("node:crypto");
 
-const { getOutline, buildSignatureMap } = require("./outline.js");
 
 const SKIP_DIRS = new Set([
   ".git", "node_modules", "vendor", "dist", "build", ".cache", "web", "frontend",

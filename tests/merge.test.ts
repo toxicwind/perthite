@@ -4,14 +4,14 @@ import { mkdtempSync, writeFileSync, rmSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 
-const CLI = join(import.meta.dir, "..", "bin", "ffs-diff.js");
+const CLI = join(import.meta.dir, "..", "bin", "perthite.ts");
 
 function runMerge(base, ours, theirs) {
   const dir = mkdtempSync(join(tmpdir(), "ffsdiff-"));
   const b = join(dir, "base"); writeFileSync(b, base);
   const o = join(dir, "ours"); writeFileSync(o, ours);
   const t = join(dir, "theirs"); writeFileSync(t, theirs);
-  const r = spawnSync("node", [CLI, b, o, t, "--merge"], { encoding: "utf8" });
+  const r = spawnSync("bun", [CLI, b, o, t, "--merge"], { encoding: "utf8" });
   rmSync(dir, { recursive: true, force: true });
   return { status: r.status, stdout: r.stdout, stderr: r.stderr };
 }
@@ -40,7 +40,7 @@ test("conflicting change on same line emits markers and exit 1", () => {
 });
 
 test("help exits 0", () => {
-  const r = spawnSync("node", [CLI, "--help"], { encoding: "utf8" });
+  const r = spawnSync("bun", [CLI, "--help"], { encoding: "utf8" });
   expect(r.status).toBe(0);
   expect(r.stdout).toContain("--merge");
 });
