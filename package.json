@@ -17,7 +17,7 @@
     ".": "./src/index.js"
   },
   "bin": {
-    "ffs-diff": "./bin/ffs-diff.js"
+    "ffs-diff": "./bin/ffs-diff.ts"
   },
   "files": [
     "bin/",
@@ -35,5 +35,8 @@
     "diff3",
     "tree-sitter",
     "estate"
-  ]
+  ],
+  "dependencies": {
+    "neverthrow": "8.2.0"
+  }
 }
