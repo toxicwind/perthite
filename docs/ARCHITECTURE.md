@@ -36,4 +36,4 @@ tests/
 - **ffs for structure** — borrow the codebase's tree-sitter index instead of
   shipping another parser.
 - **Modules over monolith** — each responsibility is `require`-able so other
-  estate tools embed the API without shelling to a CLI.
+  Pens tools embed the API without shelling to a CLI.

@@ -1,6 +1,6 @@
 # ffs-diff
 
-**Structural diff + three-way merge for the estate, ffs/tree-sitter aware.**
+**Structural diff + three-way merge for the Pens, ffs/tree-sitter aware.**
 
 Diff two files by their *shape* (functions, classes, imports) first, or merge
 two diverged revisions against a common base in one command — without dropping
@@ -22,7 +22,7 @@ A clean merge exits `0`; any conflict exits `1` and writes
 ## Install
 
 Runs on node ≥ 20 / bun ≥ 1.4.4, zero runtime deps. It shells to git's
-`merge-file` (merge mode) and the estate's `ffs` binary (structural diff).
+`merge-file` (merge mode) and the Pens's `ffs` binary (structural diff).
 
 ```bash
 ln -sf "$(pwd)/bin/ffs-diff.js" ~/.local/bin/ffs-diff   # link onto PATH

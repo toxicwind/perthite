@@ -28,7 +28,7 @@ Two complementary engines in one CLI:
 
 A hand-rolled diff3 is fragile (LCS tie-breaking misfires on adjacent
 edits). Git's `merge-file` is the proven engine and is guaranteed present on
-the estate host, so we borrow it instead of re-inventing — same reasoning as
+the Pens host, so we borrow it instead of re-inventing — same reasoning as
 `ffs` borrowing tree-sitter.
 
 ## Exit codes
