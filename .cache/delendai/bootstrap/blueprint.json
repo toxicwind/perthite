@@ -1,0 +1,122 @@
+{
+	"generatedAt": "2026-10-21T04:04:09.020Z",
+	"blueprint": {
+		"serverName": "mcp-project-ffs",
+		"namespacePrefix": "ffs",
+		"targetDir": ".",
+		"projectType": "cli",
+		"plugins": [],
+		"tools": [
+			{
+				"name": "check_project_state",
+				"description": "Single source of truth the agent calls first each turn: returns conventions, gates and what to do next."
+			},
+			{
+				"name": "get_validation_matrix",
+				"description": "Returns the quality-gate commands per scope."
+			},
+			{
+				"name": "run_command",
+				"description": "Executes the CLI in a sandbox and returns structured output."
+			},
+			{
+				"name": "run_test",
+				"description": "Run the project's test command and return a structured pass/fail report."
+			}
+		],
+		"prompts": [
+			{
+				"name": "start",
+				"description": "Orient and start working in this project.",
+				"body": "You are working in **@Pens/ffs-diff** (`cli`, `javascript`).\n\nFirst call `ffs_overview` — it is the canonical map of this server's tools, plugins and a `recommendedNextAction`. Follow the recommendation.\n\n## Project shape\n\n- Type: `cli`\n- Framework: _(none detected)_\n- Monorepo tool: _(none)_\n- Test runner: `bun`\n- Package manager: `unknown`\n\n## Quality gates\n\n- `test` → `bun test tests/`\n\n## When you change the project\n\n1. Re-run `ffs_analyze_project` to refresh the analysis.\n2. If the project grew (new scripts, new framework deps, new monorepo packages), call `ffs_plan_mcp_project` to refresh the blueprint and `ffs_create_project` to materialise the new tools.\n3. Never invent tool names; only call what `overview` lists."
+			},
+			{
+				"name": "fix quality",
+				"description": "Run the gates and fix what fails.",
+				"body": "Run the project quality gates in this order and fix what fails:\n1. `test` → `bun test tests/`\n\nIf a gate is broken because of an external dep (downstream service, network, missing env), record it as `external-gate-blocker` with the evidence and continue."
+			}
+		],
+		"skills": [
+			{
+				"name": "project standards",
+				"description": "Closed stack and conventions of the project.",
+				"body": "## Project facts\n\n- Name: `@Pens/ffs-diff`\n- Type: `cli`\n- Language: `javascript`\n- Framework: `(none)`\n- Monorepo: `(none)`\n- Package manager: `unknown`\n- Test runner: `bun`\n- MCP server: _not detected_\n- CI: _(none detected)_\n- Agent configs already in repo: - `AGENTS.md`\n\n## Language conventions\n\n- Use JSDoc for exported APIs; treat JSDoc types as a contract.\n\n",
+				"whenToUse": [
+					"Before writing or reviewing code in this project.",
+					"When a code review questions a project-wide convention."
+				]
+			}
+		],
+		"agents": [
+			{
+				"slot": "orchestrator",
+				"description": "Root orchestrator for this project."
+			}
+		],
+		"tests": true,
+		"hasExistingServer": false,
+		"adoptionStrategy": {
+			"mode": "replace",
+			"selectedCapabilities": [
+				"tools",
+				"prompts",
+				"resources",
+				"knowledge",
+				"skills",
+				"agents",
+				"mcp-config",
+				"proposal-workflow"
+			],
+			"operations": [
+				{
+					"capability": "tools",
+					"action": "replace"
+				},
+				{
+					"capability": "prompts",
+					"action": "replace"
+				},
+				{
+					"capability": "resources",
+					"action": "replace"
+				},
+				{
+					"capability": "knowledge",
+					"action": "replace"
+				},
+				{
+					"capability": "skills",
+					"action": "replace"
+				},
+				{
+					"capability": "agents",
+					"action": "replace"
+				},
+				{
+					"capability": "mcp-config",
+					"action": "replace"
+				},
+				{
+					"capability": "proposal-workflow",
+					"action": "replace"
+				}
+			],
+			"protectedCapabilities": [],
+			"requiresExplicitReplacementConsent": false
+		},
+		"defaults": {
+			"keepLegacy": false,
+			"reasons": [
+				"greenfield-safe default"
+			],
+			"warnings": []
+		},
+		"notes": [
+			"Keep arg parsing and exit codes covered by tests.",
+			"No MCP server found: create one from this blueprint (scaffold the host project, then each tool/prompt/skill/agent).",
+			"Generate a test alongside each tool.",
+			"Align with the existing agent config (AGENTS.md).",
+			"Recommended keepLegacy=false: greenfield-safe default."
+		]
+	}
+}

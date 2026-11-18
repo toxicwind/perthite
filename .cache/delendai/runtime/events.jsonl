@@ -1,0 +1,5 @@
+{"version":1,"ts":"2026-10-21T04:04:08.986Z","kind":"session.started","meta":{"mode":"managed","workspace":"/home/toxic/estate/ranch/ffs-diff"},"sessionId":"mvhl8ck9-136a7d19fe"}
+{"version":1,"ts":"2026-10-21T04:04:09.037Z","kind":"tool.started","toolName":"delendai_resolve_capability","sessionId":"mvhl8ck9-136a7d19fe"}
+{"version":1,"ts":"2026-10-21T04:04:09.039Z","kind":"tool.started","toolName":"delendai_adopt_project","sessionId":"mvhl8ck9-136a7d19fe"}
+{"version":1,"ts":"2026-10-21T04:04:09.042Z","kind":"tool.completed","toolName":"delendai_adopt_project","elapsedMs":3.4318140000000312,"error":false,"estimatedTokens4B":5669,"sessionId":"mvhl8ck9-136a7d19fe"}
+{"version":1,"ts":"2026-10-21T04:04:09.043Z","kind":"tool.completed","toolName":"delendai_resolve_capability","elapsedMs":5.235313000000019,"error":false,"estimatedTokens4B":11823,"sessionId":"mvhl8ck9-136a7d19fe"}
